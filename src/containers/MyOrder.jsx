@@ -20,8 +20,10 @@ const MyOrder = () => {
 				<p className="title">My order</p>
 			</div>
 			<div className="my-order-content">
-				{state.cart.map(product =>
-				<OrderItem product={product} key={`orderItem-${product.id}`}/> //le asigno un nombre especifico para que no se repita el key	
+				{state.cart.map((product,index) =>
+				<OrderItem product={product}
+							indexValue={index}
+						   key={index}/> //le asigno un nombre especifico para que no se repita el key	
 					)}
 				
 				<div className="order">
