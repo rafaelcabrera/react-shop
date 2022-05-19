@@ -1,13 +1,17 @@
-import React, {useState} from 'react';
+// import React, {useState} from 'react'; ya no la necesitamos luego del context
+import React, {useContext} from 'react';
 import '@styles/ProductItem.scss';
-import addToCart from '@icons/bt_add_to_cart.svg'
+import AppContext from '../context/AppContext'
+import addToCartImage from '../assets/icons/bt_add_to_cart.svg'
+import useInitialState from '../hooks/useInitialState'
 
 const ProductItem = ({product}) => {
 
-	const [cart, setCart] = useState([]);
+	const {addToCart} = useContext(AppContext)
 
-	const handleClick = () => {
-		setCart([]);
+	const handleClick = item => {
+		addToCart(item);
+		console.log(item);
 	}
 
 	return (
@@ -18,8 +22,8 @@ const ProductItem = ({product}) => {
 					<p>${product.price}</p>
 					<p>{product.title}</p>
 				</div>
-				<figure onClick ={handleClick} >
-					<img src={addToCart} alt="Add to Cart" />
+				<figure onClick ={()=> handleClick(product)} >
+					<img src={addToCartImage} alt="Add to Cart" />
 				</figure>
 				
 			</div>
