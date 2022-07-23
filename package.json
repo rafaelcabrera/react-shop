@@ -1,10 +1,13 @@
 {
+  "homepage": "https://rafaelcabrera.github.io/react-shop",
   "name": "react-shop",
   "version": "1.0.0",
   "description": "react eshop",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -b master -d dist",
     "start": "webpack serve --open",
     "build": "webpack --mode production"
   },
@@ -33,6 +36,7 @@
   "devDependencies": {
     "css-loader": "^6.2.0",
     "file-loader": "^6.2.0",
+    "gh-pages": "^4.0.0",
     "mini-css-extract-plugin": "^2.2.0",
     "sass": "^1.38.0",
     "sass-loader": "^12.1.0",
