@@ -8,4 +8,4 @@ RUN npm run build
 
 EXPOSE 8080
 
-# RUN npm run start
+CMD ["npm", "start"]
